@@ -24,13 +24,13 @@ const Edit = () => {
     
     return(
         <>
-            <Form></Form>
+            
             {loading ? (<></>):(
-                <CharacterCard
-                name={editableCharacter.name}
-                species={editableCharacter.species}
-                image={editableCharacter.image}> 
-                </CharacterCard>)}
+                <Form 
+                    name={editableCharacter.name}
+                    species={editableCharacter.species}
+                    image={editableCharacter.image}
+                ></Form>)}
             
         </>
     )
