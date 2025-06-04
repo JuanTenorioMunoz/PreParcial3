@@ -13,8 +13,12 @@ const stateSlice = createSlice({
     reducers: {
         setSearchQuery: (state, action) => {
             state.searchQuery = action.payload;
+        },
+        setApiCharacters: (state, action) => {
+            state.apiCharacters = action.payload;
         }
     }
 })
 
-export const {setSearchQuery} = stateSlice.actions;
+export const {setSearchQuery, setApiCharacters} = stateSlice.actions;
+export default stateSlice.reducer;
