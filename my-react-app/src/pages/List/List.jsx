@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import CharacterCard from "../../components/CharacterCard/CharacterCard"
 import { useDispatch, useSelector } from "react-redux"
-import { setApiCharacters } from "../../store/stateSlice/StateSlice";
+import { setApiCharacters, setSearchQuery } from "../../store/stateSlice/StateSlice";
 import { fetchMultipleCharacters } from "../../services/apiFetch";
 
 const List = () => {
 
     const dispatch = useDispatch();
     const characters = useSelector((state) => state.state.apiCharacters);
+    const query = useSelector((state) => state.state.searchQuery)
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -19,8 +20,15 @@ const List = () => {
         getCharacters();
     },[dispatch])
 
+    const setQuery = (e) => {
+        dispatch(setSearchQuery(e.target.value))
+        console.log(query)
+    }
+
     return(
         <>
+            <input onChange={(e) => setQuery(e)}></input>
+
             {characters.map((character) => (
             <CharacterCard 
             name={character.name}
