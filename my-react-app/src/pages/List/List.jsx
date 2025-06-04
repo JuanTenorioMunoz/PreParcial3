@@ -21,7 +21,11 @@ const List = () => {
     return(
         <>
         {characters.map((character) => (
-            <div key={character.id}>{character.name}</div>
+            <CharacterCard 
+            name={character.name}
+            species={character.species}
+            image={character.image}
+            ></CharacterCard>
         ))}
         </>
     )
