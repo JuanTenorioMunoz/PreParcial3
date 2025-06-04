@@ -1,6 +1,8 @@
 const Form = () => {
     return(
         <>
+            <input></input>
+            <input></input>
         </>
     )
 }

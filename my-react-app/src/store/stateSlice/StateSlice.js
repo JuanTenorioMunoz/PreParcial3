@@ -16,9 +16,12 @@ const stateSlice = createSlice({
         },
         setApiCharacters: (state, action) => {
             state.apiCharacters = action.payload;
+        },
+        setEditingCharacter: (state, action) => {
+            state.editingCharacter = action.payload;
         }
     }
 })
 
-export const {setSearchQuery, setApiCharacters} = stateSlice.actions;
+export const {setSearchQuery, setApiCharacters, setEditingCharacter} = stateSlice.actions;
 export default stateSlice.reducer;
