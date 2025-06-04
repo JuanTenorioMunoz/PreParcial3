@@ -25,9 +25,12 @@ const stateSlice = createSlice({
             state.apiCharacters = state.apiCharacters.filter(
                 (character) => character.id !== characterToDelete
             )
+        },
+        addCharacterToAPIList: (state, action) => {
+            state.apiCharacters = [...state.apiCharacters, action.payload]
         }
     }
 })
 
-export const {setSearchQuery, setApiCharacters, setEditingCharacter, deleteCharacter} = stateSlice.actions;
+export const {addCharacterToAPIList,setSearchQuery, setApiCharacters, setEditingCharacter, deleteCharacter} = stateSlice.actions;
 export default stateSlice.reducer;
