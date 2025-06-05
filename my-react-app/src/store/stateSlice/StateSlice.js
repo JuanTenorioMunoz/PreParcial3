@@ -31,6 +31,16 @@ const stateSlice = createSlice({
         },
         addCustomCharacter: (state, action) => {
             state.customCharacters = [...state.customCharacters, action.payload]
+        },
+        editCharacter: (state,action) => {
+            const editedChar = action.payload;
+            const characterToEdit = state.apiCharacters.find(
+                (character) => character.id == editedChar.id
+            )
+            if(characterToEdit){
+                characterToEdit.name = editedChar.name
+                characterToEdit.species = editedChar.species
+            }
         }
     }
 })
