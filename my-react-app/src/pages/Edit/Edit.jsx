@@ -31,6 +31,7 @@ const Edit = () => {
                     name={editableCharacter.name}
                     species={editableCharacter.species}
                     image={editableCharacter.image}
+                    id={editableCharacter.id}
                 ></Form>)}
             <button onClick={() => navigate("/")}>GO HOME</button>
         </>

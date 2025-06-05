@@ -32,18 +32,18 @@ const stateSlice = createSlice({
         addCustomCharacter: (state, action) => {
             state.customCharacters = [...state.customCharacters, action.payload]
         },
-        editCharacter: (state,action) => {
-            const editedChar = action.payload;
-            const characterToEdit = state.apiCharacters.find(
-                (character) => character.id == editedChar.id
+        editCharacter: (state, action) => {   
+            const characterInfoEdit = action.payload
+            const characterEdit = state.customCharacters.find((character) =>
+                character.id == characterInfoEdit.id
             )
-            if(characterToEdit){
-                characterToEdit.name = editedChar.name
-                characterToEdit.species = editedChar.species
+            if(characterEdit){
+                characterEdit.name = characterInfoEdit.name
+                characterEdit.species = characterInfoEdit.species
             }
         }
     }
 })
 
-export const {addCustomCharacter,addCharacterToAPIList,setSearchQuery, setApiCharacters, setEditingCharacter, deleteCharacter} = stateSlice.actions;
+export const {editCharacter,addCustomCharacter,addCharacterToAPIList,setSearchQuery, setApiCharacters, setEditingCharacter, deleteCharacter} = stateSlice.actions;
 export default stateSlice.reducer;

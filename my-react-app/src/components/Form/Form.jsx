@@ -1,13 +1,14 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { addCustomCharacter } from "../../store/stateSlice/StateSlice";
+import { addCustomCharacter, editCharacter } from "../../store/stateSlice/StateSlice";
 
-const Form = ({name, species, image}) => {
+const Form = ({name, species, image, id}) => {
 
     const dispatch = useDispatch();
     const [speciesEdit, setSpeciesEdit] = useState(species)
     const [nameEdit, setNameEdit] = useState(name)
     const character = {
+        id:id,
         species: speciesEdit,
         name: nameEdit,
         image: image,
@@ -28,6 +29,10 @@ const Form = ({name, species, image}) => {
         dispatch(addCustomCharacter(character))
     }
 
+    const editCustomCharacter = () => {
+        dispatch(editCharacter(character))
+    }
+
     return(
         <>
             <input onChange={(e)=>changeSpecies(e)}></input>
@@ -37,7 +42,8 @@ const Form = ({name, species, image}) => {
                 <h2>{speciesEdit}</h2>
                 <img src={image}></img>
             </div>
-            <button onClick={() => createCustomCharacter()}></button>
+            <button onClick={() => createCustomCharacter()}>create custom</button>
+            <button onClick={() => editCustomCharacter()}>edit custom</button>
         </>
     )
 }
